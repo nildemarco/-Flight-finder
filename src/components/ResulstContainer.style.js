@@ -51,11 +51,13 @@ button {
 }`
 
 export const ErrorContainer = styled.div`
-width:100%;
-height:500px;
+width: 90%;
+height:300px;
 display:flex;
 justify-content: center;
+align-items:center;
 font-size: 30px;
 color: red;
 background-color: rgb(255, 255, 255, 0.7);
+border-radius: 20px;
 `
