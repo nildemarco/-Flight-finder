@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { useHistory } from 'react-router-dom'
+import {Forms, Submit } from './Form.style'
+import { useHistory } from 'react-router-dom';
+import MainCardContainer from './MainCardContainer';
 
-const Forms = styled.form`
-margin: 20px;
-input {
-    margin: 5px;
-}
-`
 
 const Form = () => {
     const [dataSearch, setDataSearch] = useState({
@@ -61,20 +56,28 @@ const Form = () => {
             history.push(`/${createQueryParams(newObj)}`)
         }
     }
-    console.log(dataSearch)
+
     return (
-        <Forms onSubmit={handleSubmit}>
-            <input type="radio" name="oneWay" onChange={handleChange} value='true' checked={dataSearch.oneWay === 'true'} ></input>Oneway
-            <input type="radio" name="oneWay" onChange={handleChange} value='false' checked={dataSearch.oneWay === 'false'}></input>Roundtrip
-            Origin <input type="text" name="origin" onChange={handleChange} value={dataSearch.origin} placeholder='Origin'></input>
-            Departure Date<input type="date" name="departureDate" onChange={handleChange} value={dataSearch.departureDate}></input>
-            {dataSearch.oneWay === 'false' &&
-                <label> Return Date
-                <input type="date" name="returnDate" onChange={handleChange} value={dataSearch.returnDate}></input>
-                </label>
-            }
-            <input type="submit" name="submit" value="Search"></input>
-        </Forms>
+        <>
+            <Forms onSubmit={handleSubmit}>
+                <label>Oneway </label>
+                <input type="radio" name="oneWay" onChange={handleChange} value='true' checked={dataSearch.oneWay === 'true'} ></input>
+                <label>Roundtrip </label>
+                <input type="radio" name="oneWay" onChange={handleChange} value='false' checked={dataSearch.oneWay === 'false'}></input>
+                <label> Origin: </label>
+                <input type="text" name="origin" onChange={handleChange} value={dataSearch.origin} placeholder='Origin'></input>
+                <label>Departure Date: </label>
+                <input type="date" name="departureDate" onChange={handleChange} value={dataSearch.departureDate}></input>
+                {dataSearch.oneWay === 'false' &&
+                    <>
+                        <label> Return Date: </label>
+                        <input type="date" name="returnDate" onChange={handleChange} value={dataSearch.returnDate}></input>
+                    </>
+                }
+                <label></label>
+                <Submit type="submit" name="submit" value="Search"></Submit>
+            </Forms>
+        </>
     );
 }
 

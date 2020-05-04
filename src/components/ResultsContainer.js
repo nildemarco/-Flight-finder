@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import { Container, CardContainer, CardDetails, CardBottom, ErrorContainer } from './ResulstContainer.style';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
+import { MdFlightTakeoff, MdFlightLand, MdAttachMoney } from 'react-icons/md'
 
-const CardContainer = styled.div`
-width:80%;
-display: flex;
-justify-content: space-around;
-align-items: center;
-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-transition: 0.3s;
-margin: 10px;
-padding: 5px;`
 
-const ResultsContainer = (props) => {
+const ResultsContainer = () => {
     const [results, setResults] = useState('');
     const [error, setError] = useState(null);
 
@@ -23,8 +15,8 @@ const ResultsContainer = (props) => {
 
     const item = {
         grant_type: 'client_credentials',
-        client_id: 'npXztSngSv1dNgfNtyOMnnZayZvD5BOU',
-        client_secret: process.env.REACT_APP_API_KEY
+        client_id: process.env.REACT_APP_API_KEY,
+        client_secret: process.env.REACT_APP_API_KEY_SECRET
     };
 
     useEffect(() => {
@@ -47,28 +39,46 @@ const ResultsContainer = (props) => {
             })
     }, [getParams.params])
 
+    console.log(results)
     return (
-        <>
+        <Container>
             {results &&
                 results.data.map((element, i) => {
-                    return(
-                    <CardContainer key={i}>
-                        <h4>{element.origin}</h4>
-                        <h4>{element.destination}</h4>
-
-                <p>Price: {element.price.total}</p>
-                    </CardContainer>
-                )})
+                    return (
+                        <CardContainer key={i}>
+                            <CardDetails>
+                                <h4> Origin: {element.origin}</h4>
+                                <h4> Destination: {element.destination}</h4>
+                            </CardDetails>
+                            <CardBottom>
+                                <p> <MdFlightTakeoff
+                                    className="icons-cardbottom" />
+                                 Departure Date: {element.departureDate}
+                                </p>
+                                {
+                                    element.returnDate &&
+                                    <p> <MdFlightLand
+                                        className="icons-cardbottom" />
+                                    Return Date: {element.returnDate}
+                                    </p>
+                                }
+                                <p>Price: <MdAttachMoney
+                                    className="icons-cardbottom" />
+                                    {element.price.total}
+                                </p>
+                                <button>Buy</button>
+                            </CardBottom>
+                        </CardContainer>
+                    )
+                })
             }
-            { error && 
-              <div>
-                  we coudn't find any results
-              </div>
+            {error &&
+                <ErrorContainer>
+                    Sorry, We coudn't find any results!
+              </ErrorContainer>
 
             }
-
-
-        </>
+        </Container>
     );
 }
 
