@@ -6,6 +6,7 @@ const MCard = ({ title, img }) => {
     return (
         <Card>
             <h3>{title}</h3>
+            <div className="card-details">
             <img src={img} />
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Eligendi non quis exercitationem culpa nesciunt nihil aut
@@ -13,6 +14,7 @@ const MCard = ({ title, img }) => {
             asperiores quasi cupiditate. Voluptatum ducimus voluptates
             voluptas?
             </p>
+            </div>
         </Card>
     );
 }

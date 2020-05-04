@@ -4,7 +4,8 @@ export const Container = styled.section`
 display: flex;
 flex-direction: column;
 justify-content: center;
-align-items: center;`
+align-items: center;
+`;
 
 export const CardContainer = styled.article`
 width:75%;
@@ -23,22 +24,28 @@ border-radius: 5px;
 }
 :hover {
     transform: scale(1.1);
-}`
+}
+`;
 
 export const CardDetails = styled.div`
 width: 90%;
 display: flex;
 justify-content: space-around;
 font-size: 20px;
-`
+@media (max-width: 425px) {
+   font-size: 15px;    
+}
+`;
+
 export const CardBottom = styled.div`
 width: 90%;
 display: flex;
 justify-content: space-around;
+align-items: center;
 button {
     width: 150px;
     height: 30px;
-    margin-bottom: -5px;
+    /* margin-bottom: -5px; */
     background-color:#D3E2FF;
    border:none;
    font-size:16px;
@@ -48,7 +55,23 @@ button {
    -moz-border-radius:17px;
    -webkit-border-radius:17px;
    border-radius:17px;
-}`
+}
+
+@media (max-width: 425px) {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    p {
+        margin: 4px;
+    }
+    button {
+      width: 100px;
+      height: 20px;
+      font-size: 10px;
+      padding: 0px 10px 
+    }
+}
+`;
 
 export const ErrorContainer = styled.div`
 width: 90%;
@@ -60,4 +83,4 @@ font-size: 30px;
 color: red;
 background-color: rgb(255, 255, 255, 0.7);
 border-radius: 20px;
-`
+`;

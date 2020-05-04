@@ -1,6 +1,6 @@
 import React from 'react';
 import { Nav } from './NavBar.style';
-import { MdFlight, MdLocalHotel, MdDirectionsCar } from 'react-icons/md'
+import { MdFlight, MdLocalHotel, MdDirectionsCar } from 'react-icons/md';
 import { useHistory } from 'react-router-dom';
 
 

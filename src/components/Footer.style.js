@@ -24,8 +24,34 @@ ul {
     font-size: 40px;
     margin: 5px 15px;
     cursor: pointer;
-}
-.icons-footer:hover {
+    :hover {
     color: #ffff;
+    }   
+}
+
+@media (max-width: 425px) {
+   display: flex; 
+   flex-direction: column;
+   font-size: 20px;
+   h3 {
+       font-size: 20px;
+   }
+   .icons-footer {
+       font-size: 25px;
+       cursor: pointer;
+       :hover {
+       color: #ffff;
+       }
+   }
+   
+   ul {
+       display: flex; 
+       justify-content: center;
+       align-items: flex-start;
+       li {
+          font-size: 15px;
+          margin: 0px 10px;
+       }
+   }
 }
 `;

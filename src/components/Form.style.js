@@ -1,14 +1,12 @@
-import React from 'react';
 import styled from 'styled-components';
 
 export const Forms = styled.form`
-width: 95%;
 background-color: rgb(255, 255, 255, 0.7);
 padding: 10px;
 display: flex;
 justify-content: center;
 align-items: center;
-margin: 20px;
+margin: 0px 20px;
 border-radius: 10px;
 label {
    font-size:14px;
@@ -26,7 +24,14 @@ input {
    border-radius:9px;
    padding: 5px;
 }
-`
+@media (max-width: 425px) {
+   display: flex; 
+   flex-direction: column;
+   input {
+      margin: 5px;
+   }
+}
+`;
 export const Submit = styled.input`
 width: 70px;
 height: 32px;
@@ -37,4 +42,5 @@ color:#000000;
 padding: 10px 30px;
 -moz-border-radius:15px;
 -webkit-border-radius:15px;
-border-radius:15px;`
+border-radius:15px;
+`;

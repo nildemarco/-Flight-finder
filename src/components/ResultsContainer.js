@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, CardContainer, CardDetails, CardBottom, ErrorContainer } from './ResulstContainer.style';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
-import { MdFlightTakeoff, MdFlightLand, MdAttachMoney } from 'react-icons/md'
+import { MdFlightTakeoff, MdFlightLand, MdAttachMoney } from 'react-icons/md';
 
 
 const ResultsContainer = () => {

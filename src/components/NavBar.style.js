@@ -28,4 +28,11 @@ li:hover {
 .icons-navbar {
     margin-bottom: -3px;
 }
-`
+@media (max-width: 425px) {
+   display: flex; 
+   flex-direction: column;
+   ul {
+       display: none;
+   }
+}
+`;

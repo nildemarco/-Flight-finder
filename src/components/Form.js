@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import {Forms, Submit } from './Form.style'
+import {Forms, Submit } from './Form.style';
 import { useHistory } from 'react-router-dom';
-import MainCardContainer from './MainCardContainer';
 
 
 const Form = () => {
@@ -10,7 +9,7 @@ const Form = () => {
         departureDate: '',
         returnDate: '',
         oneWay: 'true',
-    })
+    });
 
     const createQueryParams = (obj) => {
 
@@ -26,25 +25,25 @@ const Form = () => {
         }
         queryParams = s
         return queryParams
-    }
+    };
 
     const dayCounter = (date1, date2) => {
-        let Difference_In_Time = Date.parse(date2) - Date.parse(date1)
-        let days = Difference_In_Time / (1000 * 3600 * 24)
+        let differenceInTime = Date.parse(date2) - Date.parse(date1)
+        let days = differenceInTime / (1000 * 3600 * 24)
         return days
-    }
+    };
 
     const history = useHistory();
 
     const handleChange = e => {
-        setDataSearch({ ...dataSearch, [e.target.name]: e.target.value })
-    }
+        setDataSearch({ ...dataSearch, [e.target.name]: e.target.value });
+    };
 
     const handleSubmit = e => {
         e.preventDefault();
         const { origin, departureDate, returnDate, oneWay } = dataSearch;
         if (oneWay === 'true') {
-            history.push(`/${createQueryParams(dataSearch)}`)
+            history.push(`/${createQueryParams(dataSearch)}`);
         }
         else {
             const newObj = {
@@ -53,12 +52,11 @@ const Form = () => {
                 duration: dayCounter(departureDate, returnDate),
                 oneWay
             }
-            history.push(`/${createQueryParams(newObj)}`)
+            history.push(`/${createQueryParams(newObj)}`);
         }
-    }
+    };
 
     return (
-        <>
             <Forms onSubmit={handleSubmit}>
                 <label>Oneway </label>
                 <input type="radio" name="oneWay" onChange={handleChange} value='true' checked={dataSearch.oneWay === 'true'} ></input>
@@ -77,7 +75,6 @@ const Form = () => {
                 <label></label>
                 <Submit type="submit" name="submit" value="Search"></Submit>
             </Forms>
-        </>
     );
 }
 
