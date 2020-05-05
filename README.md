@@ -21,7 +21,7 @@ https://flight-inspiration.now.sh/
 
 ----
 
-Busca a donde escaparte segun el lugar donde estas. Encuentra vuelos desde tu origen y segun las fechas que quieras irte. Esta app te mostrara las mejores posibilidades. La API utilizada es: https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=MAD
+Busca a donde escaparte segun el lugar donde estas. Encuentra vuelos desde tu origen y segun las fechas que quieras irte. Esta app te mostrara las mejores posibilidades. La API utilizada es: https://test.api.amadeus.com/v1/shopping/flight-destinations
 
 Para la busqueda utiliza codigo IATA por ejemplo: 
 Londres - LON
